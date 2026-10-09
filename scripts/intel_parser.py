@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-麦麦情报站 - 开抢时刻解析器
+麦门人格 · 开抢情报模块
 
 从麦当劳 MCP 返回的原始数据中提取时间敏感情报，生成开抢倒计时简报。
 
@@ -170,7 +170,7 @@ def classify(title: str) -> str:
 
 def build_report(calendar_text: str, mall_data: list, now: datetime) -> str:
     lines = []
-    lines.append('# 麦麦情报站 · 开抢情报简报\n')
+    lines.append('# 开抢情报简报\n')
     lines.append(f'**情报基准时间**：{now.strftime("%Y-%m-%d %H:%M")}（北京时间）\n')
 
     cal = parse_calendar_intel(calendar_text, now)
@@ -226,7 +226,7 @@ def build_report(calendar_text: str, mall_data: list, now: datetime) -> str:
             lines.append(f'| {m["name"]} | {m["point"]} | {st} | {selling} |')
 
     lines.append('\n---\n')
-    lines.append('*本简报由麦麦情报站生成，数据来自麦当劳 MCP 实时接口。'
+    lines.append('*本简报由麦门人格Skill 生成，数据来自麦当劳 MCP 实时接口。'
                  '活动时间、价格与库存以官方渠道实时结果为准。*')
     return '\n'.join(lines)
 
@@ -257,7 +257,7 @@ DEMO_MALL = [
 
 
 def main():
-    ap = argparse.ArgumentParser(description='麦麦情报站 · 开抢时刻解析器')
+    ap = argparse.ArgumentParser(description='麦门人格 · 开抢时刻解析器')
     ap.add_argument('--calendar', help='campaign-calendar 返回的文本文件')
     ap.add_argument('--mall', help='mall-points-products 返回的 JSON 文件')
     ap.add_argument('--now', help='当前时间，格式 "YYYY-MM-DD HH:MM"')

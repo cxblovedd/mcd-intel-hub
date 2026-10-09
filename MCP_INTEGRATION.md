@@ -6,7 +6,8 @@
 - **接入地址**：`https://mcp.mcd.cn`
 - **传输协议**：Streamable HTTP
 - **认证方式**：请求头 `Authorization: Bearer <MCP Token>`
-- **官方文档**：https://github.com/M-China/mcd-mcp-server
+- **官方接口文档**：https://open.mcd.cn/mcp/doc
+- **官方接入指南**：https://github.com/M-China/mcd-mcp-server
 
 ## 实际调用的 Tool
 

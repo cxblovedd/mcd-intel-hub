@@ -117,8 +117,8 @@ S = 0.5 × F + 0.3 × R + 0.2 × P
 ### 1. 配置 MCP
 
 ```bash
-git clone https://github.com/cxblovedd/mcd-intel-hub.git
-cd mcd-intel-hub
+git clone https://github.com/cxblovedd/mcd-whoami-mcd.git
+cd mcd-whoami-mcd
 ```
 
 参考 `mcp-config.example.json` 配置你的 MCP 客户端：
@@ -234,7 +234,7 @@ python3 scripts/persona_builder.py --orders orders.json
 ## 项目结构
 
 ```
-mcd-intel-hub/
+mcd-whoami-mcd/
 ├── SKILL.md                  # 场景路由、合规规则、输出规范
 ├── README.md
 ├── CONTEST_DECLARATION.md    # 参赛声明（官方文件，不可修改）
