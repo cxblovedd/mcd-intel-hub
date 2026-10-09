@@ -9,7 +9,7 @@
 - **智能体平台**：腾讯 WorkBuddy
 - **连接器**：`mcd-mcp`（麦当劳中国 MCP Server，`https://mcp.mcd.cn`，Streamable HTTP + Bearer Token）
 - **开发语言**：Python 3.13（仅标准库）
-- **项目路径**：`mcd-whoami-mcd/`
+- **项目路径**：`mcd-whoami/`
 
 ---
 
@@ -137,3 +137,15 @@ else:
 **关键认知**：榜单展示的是**仓库名**而非 Issue 标题。核对`RANKING.md` 后确认，前排项目（`mcd-saver-strategist`、`mcd-breakfast-variety`）展示的都是 repo name。因此只改 Issue 标题没有意义，必须改仓库名 —— 否则榜单上仍然显示旧定位。
 
 **结果**：仓库名 `mcd-whoami-mcd`，中文名「麦门人格」，定位为「用真实订单算出你在麦门是什么人」。
+
+---
+
+## 决策六：仓库名定为 `mcd-whoami`
+
+`mcd-whoami-mcd` 存在重复前缀，读起来冗长。榜单上其他项目均为 `mcd-功能词` 的单前缀形式
+（`mcd-saver-strategist`、`mcd-nutrition-planner`），因此最终取 `mcd-whoami` ——
+保留一个 `mcd` 前缀对齐榜单风格，`whoami` 直接点题「你是谁」。
+
+同时README 全面重写：此前版本开篇仍在使用 v3 时期的旧标签（甜品判官 / 午餐党 /
+稳健型消费者），与v4 体系脱节。现已统一为v4 命名，并补充副人格、置信度、
+加权公式说明与海报章节。
