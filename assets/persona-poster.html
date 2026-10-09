@@ -97,6 +97,18 @@
     letter-spacing: .04em;
   }
 
+  .badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 30px 0;
+    flex-wrap: wrap;
+  }
+  .badge-alt {
+    background: var(--ink);
+    color: var(--mcd-yellow);
+  }
+
   .headline {
     padding: 22px 30px 0;
   }
@@ -259,6 +271,7 @@
     .persona { font-size: 42px; }
     .brand-row, .headline, .traits, .radar, .stats { padding-left: 22px; padding-right: 22px; }
     .traits, .radar, .stats { margin-left: 22px; margin-right: 22px; }
+    .badge-row { padding-left: 22px; padding-right: 22px; }
     .footer { padding-left: 22px; padding-right: 22px; }
   }
 </style>
@@ -297,6 +310,11 @@
         <div class="trait-tag">消费习惯</div>
         <div class="trait-desc">稳健型消费者 · 平均每单 ¥53，花钱花得明白</div>
       </div>
+    </div>
+
+    <div class="badge-row">
+      <div class="badge">麦门打卡狂人</div>
+      <div class="badge badge-alt">隐藏徽章 · 消费横跨 8 个月</div>
     </div>
 
     <div class="radar">
