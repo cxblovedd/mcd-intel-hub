@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麦麦情报站 · 开抢情报</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #F1EFE8;
+    padding: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    display: flex;
+    justify-content: center;
+  }
+  .card { width: 660px; max-width: 100%; }
+
+  .hero {
+    background: #FFC72C;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .hero .brand {
+    font-size: 12px; color: #7A4A00;
+    letter-spacing: 0.05em; margin-bottom: 6px;
+  }
+  .hero h1 { font-size: 22px; color: #2C1A00; line-height: 1.35; font-weight: 600; }
+
+  .panel {
+    background: #FFFFFF;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .panel .label { font-size: 12px; color: #888780; margin-bottom: 4px; }
+  .panel h2 { font-size: 17px; color: #2C2C2A; margin-bottom: 10px; font-weight: 600; }
+
+  .countdown {
+    background: #FCEBEB; border-radius: 10px;
+    padding: 14px 16px; margin-bottom: 14px;
+  }
+  .countdown .time { font-size: 12px; color: #A32D2D; }
+  .countdown .big { font-size: 28px; color: #A32D2D; margin-top: 6px; font-weight: 600; }
+  .hint { font-size: 12px; color: #888780; line-height: 1.6; }
+
+  .row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .row:last-child { border-bottom: none; }
+  .row .info { flex: 1; min-width: 0; }
+  .row .name { font-size: 13px; color: #2C2C2A; font-weight: 500; margin-bottom: 3px; }
+  .row .desc { font-size: 12px; color: #888780; }
+  .row .cost { text-align: right; flex-shrink: 0; }
+  .row .point { font-size: 15px; color: #993C1D; font-weight: 600; margin-bottom: 3px; }
+  .row .slot { font-size: 11px; color: #888780; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-size: 12px; padding: 6px 12px; border-radius: 999px;
+    background: #F1EFE8; color: #444441;
+  }
+  .panel-title { font-size: 14px; color: #2C2C2A; font-weight: 600; margin-bottom: 12px; }
+
+  .footer {
+    background: #2C2C2A; border-radius: 12px; padding: 18px 22px;
+  }
+  .footer .title { font-size: 14px; color: #FFFFFF; font-weight: 600; margin-bottom: 10px; }
+  .footer .note { font-size: 12px; color: #D3D1C7; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="hero">
+    <div class="brand">麦麦情报站 MCD INTEL HUB</div>
+    <h1>下一个开抢窗口<br>还有多久</h1>
+  </div>
+
+  <div class="panel">
+    <div class="label">下一场定时开抢</div>
+    <h2>PEACEMINUSONE 联名徽章</h2>
+    <div class="countdown">
+      <div class="time">10月15日 10:45 开售</div>
+      <div class="big">5 天 19 小时</div>
+    </div>
+    <div class="hint">积分抢先购 10:40 开放，比正式开售早 5 分钟，别错过</div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">限量抢兑雷达</div>
+
+    <div class="row">
+      <div class="info">
+        <div class="name">联名鞋款</div>
+        <div class="desc">每人限购一双 · 先到先得</div>
+      </div>
+      <div class="cost">
+        <div class="point">8888</div>
+        <div class="slot">每日 14:00</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="info">
+        <div class="name">联名键鼠套装</div>
+        <div class="desc">每日限量 5 份</div>
+      </div>
+      <div class="cost">
+        <div class="point">6666</div>
+        <div class="slot">每日 14:00</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">它替你盯着的</div>
+    <div class="tags">
+      <span class="tag">开售倒计时</span>
+      <span class="tag">券池盘点</span>
+      <span class="tag">积分规划</span>
+      <span class="tag">限量抢兑</span>
+      <span class="tag">亲子派对</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="title">优惠散在三个入口，你只需要一个答案</div>
+    <div class="note">数据来自麦当劳 MCP 实时接口 · 非官方工具 · 活动信息以官方渠道为准</div>
+  </div>
+
+</div>
+</body>
+</html>
