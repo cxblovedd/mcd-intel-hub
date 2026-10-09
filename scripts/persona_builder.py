@@ -289,48 +289,56 @@ def _month_span(orders):
 
 
 def render_card(persona, points=None):
-    """渲染为可分享的Markdown 海报内容。"""
+    """渲染可分享的 Markdown 画像。
+
+    设计原则：分享内容要一眼看懂。
+    主信息只保留三块 —— 人格名、口味雷达、一行标签，
+    其余维度收进折叠详情，避免阅读门槛。
+    """
     s = persona['stats']
+    top = sorted(persona['taste'].items(), key=lambda x: x[1], reverse=True)[:4]
+
     lines = []
     lines.append('# 你的麦门人格\n')
     lines.append('## ' + persona['persona'] + '\n')
     lines.append('> ' + persona['tagline'] + '\n')
-    lines.append(persona['desc'] + '\n')
 
     badges = persona.get('badges') or []
     if badges:
-        lines.append('\n### 隐藏徽章\n')
-        for name, desc in badges:
-            lines.append(f'- **{name}** — {desc}')
-    lines.append('\n---\n')
+        badge_names = ' · '.join(n for n, _ in badges)
+        lines.append(f'**隐藏徽章**：{badge_names}\n')
 
-    lines.append('| 维度 | 人格标签 | 画像解读 |')
-    lines.append('|---|---|---|')
-    lines.append(f"| 作息节律 | **{persona['rhythm']['tag']}** | {persona['rhythm']['desc']} |")
-    lines.append(f"| 消费足迹 | **{persona['geo']['tag']}** | {persona['geo']['desc']} |")
-    lines.append(f"| 消费习惯 | **{persona['spend']['tag']}** | {persona['spend']['desc']} |")
-    lines.append('')
-
-    lines.append('### 数据档案\n')
-    lines.append(f"- 累计订单：**{s['totalOrders']}** 笔（有效 {s['validOrders']} 笔）")
-    lines.append(f"- 消费跨度：**{s['monthSpan']}** 个月")
-    lines.append(f"- 打卡门店：**{s['storeCount']}** 家")
-    lines.append(f"- 口味覆盖：**{s['tasteCoverage']}** 类")
-    lines.append(f"- 餐品件数：**{s['itemCount']}** 件")
-    if points:
-        lines.append(f"- 麦享会积分：累计 **{points.get('accumulativePoint','?')}**，"
-                     f"可用 **{points.get('availablePoint','?')}**")
-    lines.append('')
-
-    top = sorted(persona['taste'].items(), key=lambda x: x[1], reverse=True)[:4]
+    # 口味雷达 —— 人格的主要依据，放前面
     if top:
-        lines.append('### 口味雷达\n')
-        lines.append('| 口味维度 | 件数 |')
-        lines.append('|---|---:|')
+        lines.append('### 你点的都是什么\n')
         for tag, cnt in top:
-            bar = '█' * min(cnt, 12)
-            lines.append(f'| {tag} | {cnt} {bar} |')
+            bar = '█' * max(1, min(cnt, 12))
+            lines.append(f'{tag} {cnt}件 {bar}')
         lines.append('')
+
+    # 三个副标签压成一行，不展开解读；数据不足时整行省略
+    tags = [persona['rhythm']['tag'], persona['geo']['tag'], persona['spend']['tag']]
+    if '数据不足' not in tags:
+        lines.append('**' + ' · '.join(tags) + '**\n')
+
+    if s['validOrders'] > 0:
+        lines.append(f"{s['validOrders']} 笔订单 · {s['monthSpan']} 个月 · "
+                     f"{s['cityCount']} 座城市 · {s['storeCount']} 家门店\n")
+    else:
+        lines.append(f"{s['validOrders']} 笔有效订单 · 再积累 3 笔即可解锁画像\n")
+
+    # 详细解读收进折叠区
+    lines.append('<details><summary>展开详细解读</summary>\n')
+    lines.append('| 维度 | 标签 | 解读 |')
+    lines.append('|---|---|---|')
+    lines.append(f"| 作息 | {persona['rhythm']['tag']} | {persona['rhythm']['desc']} |")
+    lines.append(f"| 足迹 | {persona['geo']['tag']} | {persona['geo']['desc']} |")
+    lines.append(f"| 消费 | {persona['spend']['tag']} | {persona['spend']['desc']} |")
+    lines.append('')
+    for name, desc in badges:
+        lines.append(f'- **{name}** — {desc}')
+    lines.append('')
+    lines.append('</details>\n')
 
     lines.append('---')
     lines.append('*本画像由麦门情报站根据你的真实麦当劳订单数据生成，'
