@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的麦门人格 · 麦麦情报站</title>
+<style>
+  :root {
+    --mcd-red: #DA291C;
+    --mcd-yellow: #FFC72C;
+    --gold-deep: #7A4A00;
+    --gold-mid: #5A3500;
+    --cream: #FFF8E8;
+    --ink: #2C1A00;
+    --ink-soft: #6B4A22;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #E8E4DA;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    padding: 24px 16px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .toolbar {
+    width: 100%;
+    max-width: 452px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    flex: 1;
+    min-width: 130px;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform .15s, opacity .15s;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--mcd-red); color: #fff; }
+  .btn-ghost {
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid rgba(0,0,0,.15);
+  }
+
+  .poster-wrap {
+    width: 100%;
+    max-width: 452px;
+    aspect-ratio: 3 / 4;
+  }
+
+  .poster {
+    width: 100%;
+    height: 100%;
+    background: var(--mcd-yellow);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,.12);
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26px 30px 0;
+  }
+  .brand {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    color: var(--gold-deep);
+  }
+  .badge {
+    background: var(--mcd-red);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 999px;
+    letter-spacing: .04em;
+  }
+
+  .headline {
+    padding: 22px 30px 0;
+  }
+  .kicker {
+    font-size: 13px;
+    color: var(--gold-mid);
+    margin-bottom: 8px;
+  }
+  .persona {
+    font-size: 54px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    margin-bottom: 12px;
+  }
+  .slogan {
+    font-size: 15px;
+    color: var(--gold-mid);
+    line-height: 1.6;
+  }
+
+  .traits {
+    margin: 20px 30px 0;
+    background: var(--cream);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+  .traits-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-deep);
+    letter-spacing: .1em;
+    margin-bottom: 12px;
+  }
+  .trait {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  .trait:last-child { border-bottom: none; }
+  .trait-tag {
+    flex-shrink: 0;
+    width: 78px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--mcd-red);
+  }
+  .trait-desc {
+    flex: 1;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .radar {
+    margin: 18px 30px 0;
+  }
+  .radar-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-deep);
+    letter-spacing: .1em;
+    margin-bottom: 10px;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 7px;
+  }
+  .bar-label {
+    width: 68px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: var(--gold-deep);
+  }
+  .bar-track {
+    flex: 1;
+    height: 10px;
+    background: rgba(0,0,0,.08);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: var(--mcd-red);
+    border-radius: 5px;
+  }
+  .bar-num {
+    width: 22px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold-deep);
+  }
+
+  .stats {
+    margin: auto 30px 0;
+    background: var(--ink);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+  }
+  .stat {
+    flex: 1;
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--mcd-yellow);
+    line-height: 1.2;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,.65);
+    margin-top: 3px;
+  }
+
+  .footer {
+    padding: 16px 30px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cta {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .cta-sub {
+    font-size: 10px;
+    color: var(--gold-mid);
+    margin-top: 3px;
+  }
+  .repo {
+    font-size: 10px;
+    color: var(--gold-mid);
+    background: rgba(0,0,0,.06);
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .hint {
+    max-width: 452px;
+    font-size: 12px;
+    color: #6B6259;
+    line-height: 1.7;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 16px 12px 32px; }
+    .persona { font-size: 42px; }
+    .brand-row, .headline, .traits, .radar, .stats { padding-left: 22px; padding-right: 22px; }
+    .traits, .radar, .stats { margin-left: 22px; margin-right: 22px; }
+    .footer { padding-left: 22px; padding-right: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="btn btn-primary" onclick="downloadPoster()">下载图片</button>
+  <button class="btn btn-ghost" onclick="copyImage()">复制图片</button>
+</div>
+
+<div class="poster-wrap">
+  <div class="poster" id="poster">
+    <div class="brand-row">
+      <div class="brand">MC PERSONA · 麦门人格</div>
+      <div class="badge">真实订单生成</div>
+    </div>
+
+    <div class="headline">
+      <div class="kicker">你的麦门人格是</div>
+      <div class="persona">甜品判官</div>
+      <div class="slogan">冰淇淋和麦旋风是你续命的理由</div>
+    </div>
+
+    <div class="traits">
+      <div class="traits-title">人格特质</div>
+      <div class="trait">
+        <div class="trait-tag">作息节律</div>
+        <div class="trait-desc">午餐党 · 午间补给站，稳定输出型选手</div>
+      </div>
+      <div class="trait">
+        <div class="trait-tag">消费足迹</div>
+        <div class="trait-desc">跨城游侠 · 足迹遍布 4 座城市，6 家门店</div>
+      </div>
+      <div class="trait">
+        <div class="trait-tag">消费习惯</div>
+        <div class="trait-desc">稳健型消费者 · 平均每单 ¥53，花钱花得明白</div>
+      </div>
+    </div>
+
+    <div class="radar">
+      <div class="radar-title">口味雷达</div>
+      <div class="bar-row">
+        <div class="bar-label">甜品饮料</div>
+        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+        <div class="bar-num">9</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">小食组合</div>
+        <div class="bar-track"><div class="bar-fill" style="width:89%"></div></div>
+        <div class="bar-num">8</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">鸡腿风味</div>
+        <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
+        <div class="bar-num">6</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">麦满分早餐</div>
+        <div class="bar-track"><div class="bar-fill" style="width:56%"></div></div>
+        <div class="bar-num">5</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">累计订单</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">消费月数</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">打卡门店</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">33</div>
+        <div class="stat-label">餐品件数</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        <div class="cta">你是哪一种？</div>
+        <div class="cta-sub">由真实订单生成 · 仅供娱乐</div>
+      </div>
+      <div class="repo">github.com/cxblovedd/mcd-intel-hub</div>
+    </div>
+  </div>
+</div>
+
+<div class="hint">
+  下载为 1080×1440 PNG，可直接发朋友圈<br>
+  替换 HTML 中的文本即可换成你自己的画像
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+const SCALE = 1080 / 452;
+
+async function renderPoster() {
+  return html2canvas(document.getElementById('poster'), {
+    scale: SCALE,
+    backgroundColor: '#FFC72C',
+    useCORS: true
+  });
+}
+
+function downloadPoster() {
+  renderPoster().then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'my-mcd-persona.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+  }).catch(() => alert('生成失败，请重试'));
+}
+
+function copyImage() {
+  if (!navigator.clipboard || !window.ClipboardItem) {
+    alert('当前浏览器不支持一键复制，请用「下载图片」');
+    return;
+  }
+  renderPoster().then(canvas => {
+    canvas.toBlob(blob => {
+      navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+        .then(() => alert('已复制到剪贴板，可直接粘贴发送'))
+        .catch(() => alert('复制失败，请改用「下载图片」'));
+    });
+  }).catch(() => alert('生成失败，请重试'));
+}
+</script>
+</body>
+</html>
