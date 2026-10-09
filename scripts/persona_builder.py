@@ -569,7 +569,7 @@ def render_card(persona, points=None):
     lines.append('</details>\n')
 
     lines.append('---')
-    lines.append('*本画像由麦门情报站根据你的真实麦当劳订单数据生成，'
+    lines.append('*本画像由麦门人格生成，根据你的真实麦当劳订单数据推导，'
                  '仅为趣味性描述，不构成任何营养或健康建议。*')
     return '\n'.join(lines)
 

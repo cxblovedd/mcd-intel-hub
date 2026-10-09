@@ -13,6 +13,7 @@
     --cream: #FFF8E8;
     --ink: #2C1A00;
     --ink-soft: #6B4A22;
+    --locked: #C9A961;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,7 +26,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -34,12 +35,10 @@
     max-width: 452px;
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
   }
 
   .btn {
     flex: 1;
-    min-width: 130px;
     padding: 12px 16px;
     border: none;
     border-radius: 10px;
@@ -47,7 +46,7 @@
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
-    transition: transform .15s, opacity .15s;
+    transition: transform .15s;
   }
   .btn:active { transform: scale(0.97); }
   .btn-primary { background: var(--mcd-red); color: #fff; }
@@ -71,189 +70,156 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    position: relative;
     box-shadow: 0 4px 24px rgba(0,0,0,.12);
   }
+
+  .head { padding: 24px 26px 0; }
 
   .brand-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 26px 30px 0;
+    margin-bottom: 20px;
   }
   .brand {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: .12em;
-    color: var(--gold-deep);
-  }
-  .badge {
-    background: var(--mcd-red);
-    color: #fff;
     font-size: 11px;
     font-weight: 600;
-    padding: 5px 11px;
-    border-radius: 999px;
-    letter-spacing: .04em;
+    letter-spacing: .14em;
+    color: var(--gold-deep);
   }
-
-  .badge-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 30px 0;
-    flex-wrap: wrap;
-  }
-  .badge-alt {
-    background: var(--ink);
-    color: var(--mcd-yellow);
-  }
-
-  .headline {
-    padding: 22px 30px 0;
-  }
-  .kicker {
-    font-size: 13px;
+  .conf {
+    background: rgba(0,0,0,.1);
     color: var(--gold-mid);
-    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 999px;
   }
+
+  .kicker { font-size: 12px; color: var(--gold-mid); margin-bottom: 6px; }
   .persona {
-    font-size: 54px;
+    font-size: 46px;
     font-weight: 800;
     color: var(--ink);
     line-height: 1.1;
     letter-spacing: -.02em;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
-  .slogan {
-    font-size: 15px;
+  .slogan { font-size: 14px; color: var(--gold-mid); line-height: 1.5; }
+
+  .sub {
+    margin-top: 12px;
+    background: rgba(0,0,0,.08);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 12px;
     color: var(--gold-mid);
-    line-height: 1.6;
   }
+  .sub b { color: var(--ink); font-weight: 600; }
 
-  .traits {
-    margin: 20px 30px 0;
-    background: var(--cream);
-    border-radius: 14px;
-    padding: 18px 20px;
-  }
-  .traits-title {
-    font-size: 11px;
+  .section { margin: 14px 26px 0; }
+  .section-title {
+    font-size: 10px;
     font-weight: 600;
     color: var(--gold-deep);
-    letter-spacing: .1em;
-    margin-bottom: 12px;
-  }
-  .trait {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid rgba(0,0,0,.06);
-  }
-  .trait:last-child { border-bottom: none; }
-  .trait-tag {
-    flex-shrink: 0;
-    width: 78px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--mcd-red);
-  }
-  .trait-desc {
-    flex: 1;
-    font-size: 13px;
-    color: var(--ink-soft);
-    line-height: 1.5;
+    letter-spacing: .12em;
+    margin-bottom: 9px;
   }
 
-  .radar {
-    margin: 18px 30px 0;
-  }
-  .radar-title {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gold-deep);
-    letter-spacing: .1em;
-    margin-bottom: 10px;
-  }
-  .bar-row {
+  .radar-row {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 7px;
+    gap: 9px;
+    margin-bottom: 6px;
   }
-  .bar-label {
-    width: 68px;
+  .radar-label {
+    width: 64px;
     flex-shrink: 0;
-    font-size: 12px;
-    color: var(--gold-deep);
+    font-size: 11px;
+    color: var(--gold-mid);
   }
-  .bar-track {
+  .radar-track {
     flex: 1;
-    height: 10px;
-    background: rgba(0,0,0,.08);
+    height: 9px;
+    background: rgba(0,0,0,.1);
     border-radius: 5px;
     overflow: hidden;
   }
-  .bar-fill {
+  .radar-fill {
     height: 100%;
     background: var(--mcd-red);
     border-radius: 5px;
   }
-  .bar-num {
-    width: 22px;
+  .radar-num {
+    width: 34px;
     flex-shrink: 0;
     text-align: right;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 10px;
+    font-weight: 600;
     color: var(--gold-deep);
   }
 
-  .stats {
-    margin: auto 30px 0;
-    background: var(--ink);
-    border-radius: 14px;
-    padding: 16px 20px;
-    display: flex;
-  }
-  .stat {
+  .traits { display: flex; gap: 8px; }
+  .trait {
     flex: 1;
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 10px 6px;
     text-align: center;
   }
+  .trait-label { font-size: 10px; color: var(--ink-soft); margin-bottom: 4px; }
+  .trait-tag { font-size: 13px; font-weight: 700; color: var(--mcd-red); }
+
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; }
+  .badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--mcd-yellow);
+  }
+  .badge-locked {
+    background: transparent;
+    color: var(--locked);
+    border: 1px dashed var(--locked);
+    font-weight: 400;
+  }
+
+  .stats {
+    margin: auto 26px 0;
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 14px 10px;
+    display: flex;
+  }
+  .stat { flex: 1; text-align: center; }
   .stat-num {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 800;
     color: var(--mcd-yellow);
     line-height: 1.2;
   }
   .stat-label {
-    font-size: 11px;
-    color: rgba(255,255,255,.65);
-    margin-top: 3px;
+    font-size: 10px;
+    color: rgba(255,255,255,.6);
+    margin-top: 2px;
   }
 
   .footer {
-    padding: 16px 30px 24px;
+    padding: 14px 26px 22px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 10px;
   }
-  .cta {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--ink);
-  }
-  .cta-sub {
-    font-size: 10px;
-    color: var(--gold-mid);
-    margin-top: 3px;
-  }
+  .cta { font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1.4; }
+  .cta-sub { font-size: 10px; color: var(--gold-mid); margin-top: 3px; }
   .repo {
-    font-size: 10px;
+    font-size: 9px;
     color: var(--gold-mid);
     background: rgba(0,0,0,.06);
-    padding: 6px 10px;
+    padding: 5px 8px;
     border-radius: 6px;
     white-space: nowrap;
   }
@@ -268,11 +234,11 @@
 
   @media (max-width: 480px) {
     body { padding: 16px 12px 32px; }
-    .persona { font-size: 42px; }
-    .brand-row, .headline, .traits, .radar, .stats { padding-left: 22px; padding-right: 22px; }
-    .traits, .radar, .stats { margin-left: 22px; margin-right: 22px; }
-    .badge-row { padding-left: 22px; padding-right: 22px; }
-    .footer { padding-left: 22px; padding-right: 22px; }
+    .persona { font-size: 38px; }
+    .head { padding: 20px 20px 0; }
+    .section { margin-left: 20px; margin-right: 20px; }
+    .stats { margin-left: 20px; margin-right: 20px; }
+    .footer { padding-left: 20px; padding-right: 20px; }
   }
 </style>
 </head>
@@ -285,88 +251,101 @@
 
 <div class="poster-wrap">
   <div class="poster" id="poster">
-    <div class="brand-row">
-      <div class="brand">MC PERSONA · 麦门人格</div>
-      <div class="badge">真实订单生成</div>
+
+    <div class="head">
+      <div class="brand-row">
+        <div class="brand">MC WHOAMI · 麦门人格</div>
+        <div class="conf">正式画像</div>
+      </div>
+
+      <div class="kicker">你在麦门是什么人</div>
+      <div class="persona">甜品鉴赏家</div>
+      <div class="slogan">别人吃饭，你品鉴</div>
+
+      <div class="sub">隐藏副人格 ·<b> 小食收藏家</b>（与主人格接近 74%）</div>
     </div>
 
-    <div class="headline">
-      <div class="kicker">你的麦门人格是</div>
-      <div class="persona">甜品判官</div>
-      <div class="slogan">冰淇淋和麦旋风是你续命的理由</div>
+    <div class="section">
+      <div class="section-title">口味权重</div>
+      <div class="radar-row">
+        <div class="radar-label">甜品饮料</div>
+        <div class="radar-track"><div class="radar-fill" style="width:100%"></div></div>
+        <div class="radar-num">0.559</div>
+      </div>
+      <div class="radar-row">
+        <div class="radar-label">小食组合</div>
+        <div class="radar-track"><div class="radar-fill" style="width:74%"></div></div>
+        <div class="radar-num">0.414</div>
+      </div>
+      <div class="radar-row">
+        <div class="radar-label">鸡腿风味</div>
+        <div class="radar-track"><div class="radar-fill" style="width:43%"></div></div>
+        <div class="radar-num">0.238</div>
+      </div>
+      <div class="radar-row">
+        <div class="radar-label">麦满分早餐</div>
+        <div class="radar-track"><div class="radar-fill" style="width:24%"></div></div>
+        <div class="radar-num">0.134</div>
+      </div>
     </div>
 
-    <div class="traits">
-      <div class="traits-title">人格特质</div>
-      <div class="trait">
-        <div class="trait-tag">作息节律</div>
-        <div class="trait-desc">午餐党 · 午间补给站，稳定输出型选手</div>
-      </div>
-      <div class="trait">
-        <div class="trait-tag">消费足迹</div>
-        <div class="trait-desc">跨城游侠 · 足迹遍布 4 座城市，6 家门店</div>
-      </div>
-      <div class="trait">
-        <div class="trait-tag">消费习惯</div>
-        <div class="trait-desc">稳健型消费者 · 平均每单 ¥53，花钱花得明白</div>
+    <div class="section">
+      <div class="section-title">你的麦门属性</div>
+      <div class="traits">
+        <div class="trait">
+          <div class="trait-label">作息</div>
+          <div class="trait-tag">午间充电站</div>
+        </div>
+        <div class="trait">
+          <div class="trait-label">足迹</div>
+          <div class="trait-tag">跨城旅行家</div>
+        </div>
+        <div class="trait">
+          <div class="trait-label">消费</div>
+          <div class="trait-tag">套餐规划师</div>
+        </div>
       </div>
     </div>
 
-    <div class="badge-row">
-      <div class="badge">麦门打卡狂人</div>
-      <div class="badge badge-alt">隐藏徽章 · 消费横跨 8 个月</div>
-    </div>
-
-    <div class="radar">
-      <div class="radar-title">口味雷达</div>
-      <div class="bar-row">
-        <div class="bar-label">甜品饮料</div>
-        <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
-        <div class="bar-num">9</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">小食组合</div>
-        <div class="bar-track"><div class="bar-fill" style="width:89%"></div></div>
-        <div class="bar-num">8</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">鸡腿风味</div>
-        <div class="bar-track"><div class="bar-fill" style="width:67%"></div></div>
-        <div class="bar-num">6</div>
-      </div>
-      <div class="bar-row">
-        <div class="bar-label">麦满分早餐</div>
-        <div class="bar-track"><div class="bar-fill" style="width:56%"></div></div>
-        <div class="bar-num">5</div>
+    <div class="section">
+      <div class="section-title">徽章收集 4 / 6</div>
+      <div class="badges">
+        <div class="badge">麦门全勤王</div>
+        <div class="badge">麦门探险家</div>
+        <div class="badge">疯狂星期四卧底</div>
+        <div class="badge">全糖无悔</div>
+        <div class="badge badge-locked">▢ 隐藏菜单大师</div>
+        <div class="badge badge-locked">▢ 联名收藏家</div>
       </div>
     </div>
 
     <div class="stats">
       <div class="stat">
-        <div class="stat-num">8</div>
-        <div class="stat-label">累计订单</div>
+        <div class="stat-num">12</div>
+        <div class="stat-label">订单</div>
       </div>
       <div class="stat">
         <div class="stat-num">8</div>
-        <div class="stat-label">消费月数</div>
+        <div class="stat-label">月份</div>
       </div>
       <div class="stat">
-        <div class="stat-num">6</div>
-        <div class="stat-label">打卡门店</div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">城市</div>
       </div>
       <div class="stat">
-        <div class="stat-num">33</div>
-        <div class="stat-label">餐品件数</div>
+        <div class="stat-num">11</div>
+        <div class="stat-label">门店</div>
       </div>
     </div>
 
     <div class="footer">
       <div>
         <div class="cta">你是哪一种？</div>
-        <div class="cta-sub">由真实订单生成 · 仅供娱乐</div>
+        <div class="cta-sub">S = 0.5×件数 + 0.3×订单 + 0.2×复购</div>
       </div>
       <div class="repo">github.com/cxblovedd/mcd-whoami-mcd</div>
     </div>
+
   </div>
 </div>
 
@@ -379,7 +358,7 @@
 <script>
 const SCALE = 1080 / 452;
 
-async function renderPoster() {
+function renderPoster() {
   return html2canvas(document.getElementById('poster'), {
     scale: SCALE,
     backgroundColor: '#FFC72C',
@@ -390,7 +369,7 @@ async function renderPoster() {
 function downloadPoster() {
   renderPoster().then(canvas => {
     const link = document.createElement('a');
-    link.download = 'my-mcd-persona.png';
+    link.download = 'my-mcd-whoami.png';
     link.href = canvas.toDataURL('image/png');
     link.click();
   }).catch(() => alert('生成失败，请重试'));
