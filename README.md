@@ -11,6 +11,12 @@
 
 </div>
 
+<p align="center">
+  <a href="marketing/xiaohongshu/2026-10-09-01/01-cover.png">
+    <img src="marketing/xiaohongshu/2026-10-09-01/01-cover.png" width="480" alt="麦门人格宣传封面：你的麦当劳订单藏着哪种人格？">
+  </a>
+</p>
+
 ---
 
 ## 它不分析你吃了什么，它定义你是谁
@@ -180,11 +186,22 @@ python3 scripts/persona_builder.py --orders orders.json
 
 替换 HTML 内的文本即可换成你自己的画像，详见 `assets/README.md`。
 
-### 截图
+### 人格图鉴与体验指南
 
-> 📸 **此处放你的实际截图**
->
-> 建议放三张：海报成品、徽章区与副人格特写、在 WorkBuddy 里的实际对话截图。
+以下为 AI 辅助设计的宣传插画，展示趣味人格与使用方式，不是实际运行截图。点击图片可查看原图。
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <a href="marketing/xiaohongshu/2026-10-09-01/02-personas.png"><img src="marketing/xiaohongshu/2026-10-09-01/02-personas.png" width="360" alt="四种麦门人格宣传图：甜品鉴赏家、早八掌门人、小食收藏家、联名猎人"></a>
+      <br>先认领一个：你是哪一派？
+    </td>
+    <td align="center" width="50%">
+      <a href="marketing/xiaohongshu/2026-10-09-01/03-how-to.png"><img src="marketing/xiaohongshu/2026-10-09-01/03-how-to.png" width="360" alt="麦门人格体验指南：先看离线示例，再接入真实订单，问一句我的麦门人格是什么"></a>
+      <br>先跑离线示例，再生成自己的画像
+    </td>
+  </tr>
+</table>
 
 ---
 
